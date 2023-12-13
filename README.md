@@ -12,7 +12,7 @@ baseline_acc.ipynb: get the baseline accuracy for evaluation.
 
 generate_raw.ipynb: read the raw dataset from the kaggle data folder. Before run this file, you will need to have the ETFs folder from the kaggle dataset and configure its path on your device correctly. You do not need to run this file youself. The rawdata has already been generated.
 
-Note that to run those files, you will need to check the input dataset files paths. It is highly recommanded to direction use rawdata.csv for the preprocessing. The preprocessed datasets are at `preprocess/preprocessed_data'.
+Note that to run those files, you will need to check the input dataset files paths. It is highly recommanded to direction use rawdata.csv for the preprocessing. The preprocessed datasets are at `preprocess/preprocessed_data`.
 
 
 For the SVM and XGBoost models, the code was written and run in the google colab. The links to their implementations are shown in the following. You will need to upload data and check the file names and paths before you run the files.
