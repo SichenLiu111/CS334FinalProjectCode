@@ -1,16 +1,12 @@
 # ETFs return prediction
 
 This repository contains all code files for the projects. The following gives a structure of this repository.
+preprocess: contains rawdata, code for preprocessing, and preprocessed datasets.
+models: contains the code for hyperparameter tuning, training, testing, and evaluation for the five models used in this project.
+draw_roc.ipynb: generate the ROC curves for the five models in one graph.
+baseline_acc.ipynb: get the baseline accuracy for evaluation.
 
 generate_raw.ipynb: read the raw dataset from the kaggle data folder. Before run this file, you will need to have the ETFs folder from the kaggle dataset and configure its path on your device correctly. You do not need to run this file youself. The rawdata has already been generated.
-
-preprocess: contains rawdata, code for preprocessing, and preprocessed datasets.
-
-models: contains the code for hyperparameter tuning, training, testing, and evaluation for the five models used in this project.
-
-draw_roc.ipynb: generate the ROC curves for the five models in one graph.
-
-baseline_acc.ipynb: get the baseline accuracy for evaluation.
 
 Note that to run those files, you will need to check the input dataset files paths. It is highly recommanded to direction use rawdata.csv for the preprocessing. The preprocessed datasets are at `preprocess/preprocessed_data'.
 
