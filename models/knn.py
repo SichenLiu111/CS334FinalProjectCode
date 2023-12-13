@@ -46,9 +46,11 @@ def main():
     knn.fit(xTrain, yTrain)
 
     # Predictions
+    
+    # predict the training dataset
     predictions = knn.predict(xTrain)
-
     trainAcc = accuracy_score(yTrain,predictions)
+    
     # predict the test dataset
     yHatTest = knn.predict(xTest)
     testAcc = accuracy_score(yHatTest, yTest)

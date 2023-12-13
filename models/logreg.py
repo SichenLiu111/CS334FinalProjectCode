@@ -7,10 +7,10 @@ import numpy as np
 
 def load_data():
     # Paths to the data files
-    x_train_path = '/Users/zhenyanli/PycharmProjects/CS334/main/project/xTrain.csv'
-    y_train_path = '/Users/zhenyanli/PycharmProjects/CS334/main/project/yTrain_discrete.csv'
-    x_test_path = '/Users/zhenyanli/PycharmProjects/CS334/main/project/xTest.csv'
-    y_test_path = '/Users/zhenyanli/PycharmProjects/CS334/main/project/yTest_discrete.csv'
+    x_train_path = 'preprocess/preprocessed_data/xTrain.csv'
+    y_train_path = 'preprocess/preprocessed_data/yTrain_discrete.csv'
+    x_test_path = 'preprocess/preprocessed_data/xTest.csv'
+    y_test_path = 'preprocess/preprocessed_data/yTest_discrete.csv'
 
     # Load the datasets
     x_train = pd.read_csv(x_train_path)
@@ -46,9 +46,6 @@ def train_and_evaluate(x_train, y_train, x_test, y_test):
     y_pred = best_model.predict(x_test)
     y_pred_proba = best_model.predict_proba(x_test)[:,1]
 
-    # Perform the grid search and train the best model
-    grid_search.fit(x_train, y_train.values.ravel())
-
     # Evaluate the model
     accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred)
@@ -71,31 +68,14 @@ def train_and_evaluate(x_train, y_train, x_test, y_test):
 
     print("Accuracy:", accuracy)
     print("Classification Report:")
-    print(report)
+    print(report)   # prints classification report including precision,recall,and F-1
     return grid_search
 
-
-def plot_grid_search(cv_results, grid_param_1, grid_param_2, name_param_1, name_param_2):
-    scores_mean = cv_results['mean_test_score']
-    scores_mean = np.array(scores_mean).reshape(len(grid_param_2), len(grid_param_1))
-
-    for idx, val in enumerate(grid_param_2):
-        plt.plot(grid_param_1, scores_mean[idx, :], '-o', label=name_param_2 + ': ' + str(val))
-
-    plt.title("Grid Search Scores")
-    plt.xlabel(name_param_1)
-    plt.ylabel('CV Average Score')
-    plt.legend(loc="best")
-    plt.grid(True)
-    plt.show()
 
 def main():
     x_train, y_train, x_test, y_test = load_data()
     grid_search = train_and_evaluate(x_train, y_train, x_test, y_test)
 
-    # Plot the results
-    hyperparameters = grid_search.param_grid
-    plot_grid_search(grid_search.cv_results_, hyperparameters['C'], hyperparameters['penalty'], 'C', 'Penalty')
 
 if __name__ == "__main__":
     main()
