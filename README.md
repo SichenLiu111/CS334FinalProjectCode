@@ -2,7 +2,7 @@
 
 This repository contains all code files for the projects. The following gives a structure of this repository.
 
-generate_raw.ipynb: read the raw dataset from the kaggle data folder.
+generate_raw.ipynb: read the raw dataset from the kaggle data folder. Before run this file, you will need to have the ETFs folder from the kaggle dataset and configure its path on your device correctly. You do not need to run this file youself. The rawdata has already been generated.
 
 preprocess: contains rawdata, code for preprocessing, and preprocessed datasets.
 
