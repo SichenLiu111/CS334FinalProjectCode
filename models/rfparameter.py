@@ -37,7 +37,7 @@ def main():
     'min_samples_split': [2, 5, 10],
     'min_samples_leaf': [1, 2, 4],
     'bootstrap': [True, False]
-}
+    }
 
     # Initialize a Random Forest classifier
     rf = RandomForestClassifier()
